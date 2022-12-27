@@ -1,0 +1,392 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebPrac.WebForm1" %>
+
+<!DOCTYPE html>
+<script></script>
+<style>
+
+    #Top{
+        border : 1px solid;
+        border-color : lightgray;
+        height : 50px;
+    }
+
+    #Sec1{
+        margin : 10px;
+        float: right;
+        width: 90%;
+        border : 1px solid;
+        border-color : lightgray;
+        height: 100vh;
+        margin : 5px;
+    }
+
+    #Side{
+        margin-left : 10px;
+        margin-top : 4px;
+        float: left;
+        width: 160px;
+        border : 1px solid;
+        border-color : lightgray;
+        border-radius : 5px;
+        height: 100vh;
+    }
+
+    .navbar{
+
+          justify-content: space-between;
+          align-items: center;
+          background-color: var(--background-color);
+          padding: 8px 12px;
+        
+    }
+
+    ul{
+        list-style-type : none;
+        margin : 0;
+        padding : 0;
+
+    }
+
+    .Category{
+              display:inline-block;
+              margin : 10px;
+
+
+    }
+
+    li a {
+        display : inline-block;
+        text-decoration : none;
+        text-align : left;
+        font-weight : unset;
+        font-size : 15px;
+        color : black;
+        margin : 1px;
+        width : 150px;
+        
+    }
+
+      img{
+         margin : 5px;
+         float : left;
+         width : 150px;
+     }
+
+     #gnb{
+         float :left;
+
+     }
+
+    .auto-style1 {
+        height: 50px;
+        margin : 80px 5px 15px 5px;
+        border : 1px solid;
+        border-color : lightgray;
+        background: linear-gradient(white, lightgray);
+    }
+
+    .plus_button{
+        border : 1px solid;
+        border-color : lightgray;
+        background: linear-gradient(white 85%, lightgray);
+        margin-right : 5px;
+        float: right;
+        width : 60px;
+        font-weight:bold;
+        border-radius:3px;
+        cursor : pointer;
+    }
+
+    .auto{
+        float:left;
+        margin: 13px;
+    }
+ 
+    .select1 select{
+        position:relative;
+        width:50px;
+        margin-top:15px;
+        float : left;
+           
+    }
+     
+    .select1 input {
+        position:relative;
+        width:150px;
+        height : 15px;
+        margin-top:15px;
+        float : left;
+           
+    }
+    
+    #search {
+        background-color:rgb(062,089,137);
+        color: white;
+        border: none;
+        margin: 15px;
+        width: 62px;
+        border-radius: 3px;
+        cursor : pointer;
+        border-radius:3px;
+    }
+
+    #reset{
+        border : 1px solid;
+        border-color : lightgray;
+        background: linear-gradient(white 85%, lightgray);
+        margin : 15px;
+        float: right;
+        width : 60px;
+        font-weight:bold;
+        border-radius:3px;
+        cursor : pointer; 
+        /**
+            cursor : pointer -> 마우스 오버 시 손모양 변경
+        */
+    }
+
+    #Graph{
+        margin : 10px;
+        border-color : dimgray;
+        border : 1px solid;
+        height : 78%;
+        width : 99%;
+    }
+    
+    .bl{
+        background-color : rgb(086,137,219);
+        border : 0;
+        color : white;
+        font-weight : bold;
+        
+    }
+   
+    .auto-style3 {
+        width: 157px;
+    }
+    .auto-style4 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 0;
+        background-color : dodgerblue;
+        color : white;
+        font-weight : bold;
+        width: 90px;
+    }
+    .auto-style5 {
+        width: 90px;
+    }
+
+    .auto-style6 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 0;
+        background-color : dodgerblue;
+        color : white;
+        font-weight : bold;
+        width: 181px;
+    }
+    .auto-style7 {
+        width: 181px;
+    }
+
+    .auto-style9 {
+        width: 222px;
+    }
+    .auto-style10 {
+        border-style: none;
+        border-color: inherit;
+        border-width: 0;
+        background-color : dodgerblue;
+        color : white;
+        font-weight : bold;
+        width: 172px;
+    }
+    .auto-style11 {
+        width: 172px;
+    }
+
+    #gr {
+        background-color : lightgray;
+        border-collapse : collapse;
+    }
+
+    #table1 tr{
+        border : solid;
+        border-color: lightgray;
+    }
+
+</style>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img src="D:\박종성\download/sunsoftlogo.png" alt="Logo"/>
+
+            <div id="gnb">
+                <ul class="nav_logo">
+                    <li class="Category"><a href="#">전자결제</a></li> 
+                    <li class="Category"><a href="#">일정관리</a></li>
+                    <li class="Category"><a href="#">자원관리</a></li>
+                    <li class="Category"><a href="#">게시판</a></li>
+                    <li class="Category"><a href="#">거래처요구사항</a></li>
+                </ul>
+            </div>
+            <ul class="nav_menu">
+                
+            </ul>
+            
+        </nav>
+
+    </header>
+
+    <section class="Main">
+        <article id="Sec1" class="auto-style3">
+            <ul style ="list-style-type: circle;">
+                <li style="margin : 30px; font-weight: bold;">거래처 요구사항</li>
+            </ul>
+
+            <div class="plus">
+                <button onclick="alert('추가')" type="button" class="plus_button" >추가</button>
+            </div>
+
+            <div class="auto-style1">
+
+                <ul>
+                    <li class="auto">구분</li>
+                </ul>
+
+                <label class="select1">
+                    <select>
+                        <option >ALL</option>
+                    </select>
+                </label>
+
+                   <ul>
+                    <li class="auto">도입기업</li>
+                </ul>
+
+                <label class="select1">
+                    <input type="text" name="company" size="20" />
+                </label>
+
+                   <ul>
+                    <li class="auto">공급기업 PM</li>
+                </ul>
+
+                <label class="select1">
+                    <input type="text" name="company" size="20" />
+                </label>
+
+                   <ul>
+                    <li class="auto">처리 담당자</li>
+                </ul>
+
+                <label class="select1">
+                    <input type="text" name="company" size="20" />
+                </label>
+
+                <button onclick="alert('검색')" type="button" id="search" >검색</button>
+                <button onclick="alert('초기화')" type="button" id="reset">초기화</button>
+
+            </div>
+            <table border="1" id="table1"  style ="width: 100%; text-align : center; font-size: 12px; border-left:0px; border-bottom:0; border-right: 0; border-top: 0;">
+                <tr>
+                    <td class="bl">요청일자</td>
+                    <td class="bl">도입기업</td>
+                    <td class="bl">도입기업담당자</td>
+                    <td class="bl">요청사항</td>
+                    <td class="bl">메뉴 카테고리</td>
+                    <td class="bl">공급기업PM</td>
+                    <td class="bl">처리 담당자</td>
+                    <td class="bl">완료예정일</td>
+                    <td class="bl">최종완료일</td>
+                    <td class="bl">비고</td>
+                </tr>
+                <tr id="gr">
+                    <td class="auto-style5">
+                     <label>
+                        <select style="width:100px;">
+                            <option >&nbsp;</option>
+                        </select>
+                    </label>
+                    </td>
+                    <td class="auto-style7">
+                      <label>
+                         <input type="text" name="company" size="20" />
+                      </label>
+                    </td>
+                    <td class="auto-style11">
+                        <label>
+                         <input type="text" size="20" />
+                      </label>
+                    </td>
+                    <td class="auto-style14">
+                        <label>
+                         <input type="text" size="20" class="auto-style12" />
+                       </label>
+                    </td>
+                    <td class="auto-style5">
+                        <label>
+                         <input type="text" size="20" />
+                       </label>
+                    </td>
+                    <td class="auto-style5">
+                        <label>
+                         <input type="text" size="20" />
+                       </label>
+                    </td>
+                    <td class="auto-style9">
+                         <label>
+                         <input type="text" size="20" />
+                       </label>
+                    </td>
+                    <td class="auto-style18">
+                            <label>
+                        <select style="width:100px;">
+                            <option >&nbsp;</option>
+                        </select>
+                    </label>
+                    </td>
+                    <td class="auto-style16">
+                            <label>
+                        <select style="width:100px;">
+                            <option >&nbsp;</option>
+                        </select>
+                    </label>
+                    </td>
+                    <td class="auto-style9">
+                        <label>
+                         <input type="text" size="20" />
+                       </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style11">&nbsp;</td>
+                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style18">&nbsp;</td>
+                    <td class="auto-style16">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+                
+        </article>
+
+        <div id="Side" class="sidebar">
+
+        </div>
+
+    </section>
+     
+</body>
+</html>
