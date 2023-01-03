@@ -19,7 +19,7 @@ aSPxTxtBxMacNm.Text = dr["MACNM"] != null ? dr["MACNM"].ToString() : string.Empt
 <td>
 <dx:ASPxTextBox runat="server" ID="aPxTBxItmNm" ClientIDMode="Static" CssClass="txt_search" MaxLength="100" Style="float:left;">
 </dx:ASPxTextBox>
-<dx:ASPxTextBox ID="aPxTBxStdUnit" runat="server" ClientIDMode="Static" Style="float:left;" CssClass="txt_search" MaxLength="20"></dx:ASPxTextBox>
+<dx:ASPxTextBox ID="aPxTBxStdUnit" runat="server" ClientIDMode="Static" Style="float:left;" CssClass="txt_search" MaxLength="20"></dx:ASPxTextBox> //이부분 수정
 </td>
 </tr>
 
@@ -34,7 +34,7 @@ var scpPopupCtrl = {
                 if (v.length > 1) {
                     aSPxBtnEtItemCd.SetValue(v[0]);
                     aPxTBxItmNm.SetValue(v[1]);
-                    aPxTBxStdUnit.SetValue(v[3]);
+                    aPxTBxStdUnit.SetValue(v[3]); //이부분 수정
 
                 }
                 aPxPopCtrlFItm.Hide();
@@ -65,13 +65,14 @@ _ColSTDUNIT.HeaderCaptionTemplate = new GrdVwColHeaderTemplate(_ResMgr.GetString
 
 //쿼리에서 데이터 집어넣기
 //SQL
+
 BEGIN
    
 SELECT M.SEQNO, M.ITMCD, I.ITMNM,
 			CAST(M.USEQTY AS DOUBLE) AS USEQTY,
-			M.REMARK, M.REGUSER, M.EDTUSER, M.REGDATIME, M.EDTDATIME,E.STDUNIT
+			M.REMARK, M.REGUSER, M.EDTUSER, M.REGDATIME, M.EDTDATIME,E.STDUNIT //E.STDUNIT 추가
 	FROM tb_macusehis M LEFT JOIN tb_itmmstinfo AS I ON I.ITMCD = M.ITMCD
-	LEFT JOIN  tb_itmmstinfo AS E ON E.ITMCD = M.ITMCD
+	LEFT JOIN  tb_itmmstinfo AS E ON E.ITMCD = M.ITMCD //추가
 	WHERE (CASE WHEN _ITMCD != '' THEN M.ITMCD  LIKE  CONCAT('%', _ITMCD, '%') ELSE true END) 
 	 AND	(CASE WHEN _ITMNM != '' THEN I.ITMNM LIKE  CONCAT('%', _ITMNM, '%') ELSE true END)
 	ORDER BY M.REGDATIME DESC;
@@ -83,4 +84,5 @@ SELECT M.SEQNO, M.ITMCD, (SELECT I.ITMNM FROM tb_itmmstinfo I WHERE I.ITMCD = M.
 			M.REMARK, M.REGUSER, M.EDTUSER, M.REGDATIME, M.EDTDATIME, E.STDUNIT
 	FROM tb_macusehis M LEFT JOIN  tb_itmmstinfo E ON E.ITMCD = M.ITMCD
 	WHERE SEQNO = SEQNO;
+
 ///SQL
